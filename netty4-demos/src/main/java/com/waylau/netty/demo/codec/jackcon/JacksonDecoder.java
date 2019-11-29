@@ -1,5 +1,6 @@
 package com.waylau.netty.demo.codec.jackcon;
 
+import java.io.DataInput;
 import java.util.List;
 
 import io.netty.buffer.ByteBuf;
@@ -31,7 +32,7 @@ public class JacksonDecoder<T> extends ByteToMessageDecoder {
 	@Override
 	protected void decode(ChannelHandlerContext ctx, ByteBuf in,
 			List<Object> out) throws Exception {
-        ByteBufInputStream byteBufInputStream = new ByteBufInputStream(in);
+		DataInput byteBufInputStream = new ByteBufInputStream(in);
         out.add(JacksonMapper.getInstance().readValue(byteBufInputStream, clazz));
 
 	}

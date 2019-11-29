@@ -1,6 +1,7 @@
 package com.waylau.netty.demo.codec.jackcon;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.fasterxml.jackson.core.JsonEncoding;
@@ -33,8 +34,8 @@ public class JsonGeneratorDemo {
 
 			JsonFactory jfactory = new JsonFactory();
  
-			JsonGenerator jGenerator = jfactory.createJsonGenerator(new File(
-					FILE_PATH), JsonEncoding.UTF8);
+			JsonGenerator jGenerator = jfactory.createJsonGenerator(new FileOutputStream(new File(
+					FILE_PATH)), JsonEncoding.UTF8);
 			jGenerator.writeStartObject(); // {
 
 			jGenerator.writeStringField("name", "mkyong"); // "name" : "mkyong"
